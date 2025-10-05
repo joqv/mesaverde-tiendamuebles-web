@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-catalogo-component',
-  imports: [],
+  imports: [CommonModule],
+  standalone: true,
   templateUrl: './catalogo-component.html',
-  styleUrl: './catalogo-component.scss'
+  styleUrls: ['./catalogo-component.scss']
 })
+
+
+
 export class CatalogoComponent {
+  productos = Array.from({ length: 56 }, (_, i) => ({
+    id: i + 1,
+    nombre: `Producto ${i + 1}`,
+    imagen: `${i + 1}.jpg`
+  }));
+
 
 }

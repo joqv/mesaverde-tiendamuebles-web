@@ -1,1 +1,47 @@
-<p>carrito-component works!</p>
+
+
+<div class="min-h-screen bg-gray-50 p-6">
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">🛒 Carrito de Compras</h2>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full border border-gray-200">
+        <thead class="bg-gray-100">
+        <tr>
+          <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
+          <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Producto</th>
+          <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Cantidad</th>
+          <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Precio Unitario</th>
+          <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Subtotal</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Listado de productos -->
+        <tr class="border-t">
+          <td class="px-4 py-2 text-sm text-gray-700">1</td>
+          <td class="px-4 py-2 text-sm text-gray-700">Camiseta Azul</td>
+          <td class="px-4 py-2 text-sm text-gray-700">2</td>
+          <td class="px-4 py-2 text-sm text-gray-700">R$ 50,00</td>
+          <td class="px-4 py-2 text-sm text-gray-700">R$ 100,00</td>
+        </tr>
+        <!-- Despues, cambiar por for() -->
+        </tbody>
+        <tfoot>
+        <tr class="bg-gray-100 border-t">
+          <td colspan="4" class="px-4 py-2 text-right font-semibold text-gray-800">Total:</td>
+          <td class="px-4 py-2 text-sm font-bold text-green-600">R$ 100,00</td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="mt-6 flex justify-between">
+      <a routerLink="/catalogo" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded transition">
+        Volver al catálogo
+      </a>
+      <button class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded transition">
+        Comprar
+      </button>
+    </div>
+  </div>
+</div>
