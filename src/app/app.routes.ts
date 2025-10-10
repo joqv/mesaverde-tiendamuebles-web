@@ -16,6 +16,12 @@ export const routes: Routes = [
     loadComponent: () => import('./features/venta/catalogo/catalogo-component')
       .then(m => m.CatalogoComponent)
   },
-  { path: '', redirectTo: '/confirmacion', pathMatch: 'full' },
-  { path: '**', redirectTo: '/confirmacion' }
+  {
+    path: 'bvcatalogo',
+    loadComponent: () => import('./features/venta/bvcatalogo/bvcatalogo-component')
+      .then(m => m.BvcatalogoComponent)
+  },
+
+  { path: '', redirectTo: '/bvcatalogo', pathMatch: 'full' },
+ // { path: '**', redirectTo: '/bvcatalogo' }
 ];

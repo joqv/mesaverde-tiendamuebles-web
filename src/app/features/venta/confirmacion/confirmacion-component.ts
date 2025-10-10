@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {CommonModule} from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-confirmacion-component',
@@ -9,5 +11,11 @@ import {CommonModule} from '@angular/common';
   styleUrl: './confirmacion-component.scss'
 })
 export class ConfirmacionComponent {
+
+  constructor(private router: Router) {}
+
+  volverAlCatalogo() {
+    this.router.navigate(['/catalogo']);
+  }
 
 }

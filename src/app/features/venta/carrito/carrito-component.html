@@ -16,30 +16,31 @@
         </tr>
         </thead>
         <tbody>
-        <!-- Listado de productos -->
-        <tr class="border-t">
-          <td class="px-4 py-2 text-sm text-gray-700">1</td>
-          <td class="px-4 py-2 text-sm text-gray-700">Camiseta Azul</td>
-          <td class="px-4 py-2 text-sm text-gray-700">2</td>
-          <td class="px-4 py-2 text-sm text-gray-700">R$ 50,00</td>
-          <td class="px-4 py-2 text-sm text-gray-700">R$ 100,00</td>
+        <tr *ngFor="let producto of productosEnCarrito" class="border-t">
+          <td class="px-4 py-2 text-sm text-gray-700">{{ producto.id }}</td>
+          <td class="px-4 py-2 text-sm text-gray-700">{{ producto.nombre }}</td>
+          <td class="px-4 py-2 text-sm text-gray-700">{{ producto.cantidad }}</td>
+          <td class="px-4 py-2 text-sm text-gray-700">R$ {{ producto.precio_unitario.toFixed(2) }}</td>
+          <td class="px-4 py-2 text-sm text-gray-700">R$ {{ (producto.cantidad * producto.precio_unitario).toFixed(2) }}</td>
         </tr>
-        <!-- Despues, cambiar por for() -->
         </tbody>
         <tfoot>
         <tr class="bg-gray-100 border-t">
           <td colspan="4" class="px-4 py-2 text-right font-semibold text-gray-800">Total:</td>
-          <td class="px-4 py-2 text-sm font-bold text-green-600">R$ 100,00</td>
+          <td class="px-4 py-2 text-sm font-bold text-green-600">R$ {{ calcularTotal().toFixed(2) }}</td>
         </tr>
         </tfoot>
       </table>
     </div>
 
     <div class="mt-6 flex justify-between">
-      <a routerLink="/catalogo" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded transition">
+      <button
+        (click)="volverAlCatalogo()"
+        class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded transition">
         Volver al catálogo
-      </a>
-      <button class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded transition">
+      </button>
+
+      <button (click)="comprar()" class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded transition">
         Comprar
       </button>
     </div>

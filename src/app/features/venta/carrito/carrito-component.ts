@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {CommonModule} from '@angular/common';
+import { CarritoService } from '../../../services/carrito.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-carrito-component',
@@ -9,5 +11,40 @@ import {CommonModule} from '@angular/common';
   styleUrl: './carrito-component.scss'
 })
 export class CarritoComponent {
+  productosEnCarrito: any[] = [];
+
+  constructor(private carritoService: CarritoService,
+              private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.productosEnCarrito = this.carritoService.obtenerCarrito();
+  }
+
+  calcularTotal(): number {
+    return this.productosEnCarrito.reduce((total, p) => total + p.cantidad * p.precio_unitario, 0);
+  }
+
+  comprar() {
+    this.carritoService.enviarCarritoAlBackend().subscribe({
+      next: (respuesta) => {
+        console.log('Transacción exitosa:', respuesta);
+        //alert('¡Compra realizada con éxito!');
+        this.carritoService.limpiarCarrito();
+        this.productosEnCarrito = [];
+        this.router.navigate(['/confirmacion']);
+      },
+      error: (error) => {
+        console.error('Error al procesar la compra:', error);
+        alert('Hubo un problema al realizar la compra.');
+      }
+    });
+  }
+
+  volverAlCatalogo() {
+    this.carritoService.limpiarCarrito();
+    this.productosEnCarrito = [];
+    this.router.navigate(['/catalogo']);
+  }
 
 }

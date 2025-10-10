@@ -5,7 +5,7 @@
     <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Catálogo de Productos</h1>
 
     <div class="flex justify-end mb-4">
-      <button class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded">
+      <button (click)="agregarSeleccionados()" class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded">
         Añadir al carrito
       </button>
     </div>
@@ -18,9 +18,15 @@
         <p class="text-sm text-gray-500 mb-2">ID: {{ producto.id }}</p>
 
         <label class="flex items-center mb-2">
-          <input type="checkbox" class="mr-2 accent-green-600" />
+          <input type="checkbox" [(ngModel)]="producto.seleccionado" class="mr-2 accent-green-600" />
           <span class="text-sm text-gray-700">Seleccionar</span>
         </label>
+
+        <label class="flex items-center mb-2">
+          <span class="text-sm text-gray-700 mr-3">Cantidad:</span>
+          <input type="number" min="1" [(ngModel)]="producto.cantidad" class="accent-green-600 border border-gray-300 rounded px-2 py-1 w-16" />
+        </label>
+
 
       </div>
     </div>
