@@ -26,7 +26,7 @@ export class CarritoService {
       total: this.carrito.reduce((acc, p) => acc + p.cantidad * p.precio_unitario, 0)
     };
 
-    return this.http.post('http://localhost:61854/ventas/vender', payload);
+    return this.http.post('http://localhost:8080/venta-service/ventas/vender', payload);
   }
 
 

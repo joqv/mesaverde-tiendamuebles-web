@@ -14,7 +14,7 @@ export class BvcatalogoComponent {
   constructor(private router: Router) {}
 
   irATienda() {
-    fetch('http://localhost:61854/ventas/catalogo')
+    fetch('http://localhost:8080/venta-service/ventas/catalogo')
       .then(response => response.json())
       .then(data => {
         localStorage.setItem('catalogo', JSON.stringify(data));
