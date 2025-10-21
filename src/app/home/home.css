@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --color-fondo: #121212;
+  --color-tarjeta: #1e1e1e;
+  --color-texto-claro: #f0f0f0;
+  --color-acento: #4a90e2;
+  --color-borde: #333;
+  --color-hover: #5d9ee7;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  overflow: hidden;
+  color: var(--color-texto-claro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+#myVideo {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(0.4) grayscale(0.2);
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 30px 50px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.main-title {
+  font-size: 3em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--color-texto-claro);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.subtitle {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-bottom: 40px;
+  color: var(--color-texto-claro);
+  opacity: 0.8;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-main {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: var(--color-acento);
+  color: var(--color-texto-claro);
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+.btn-main:hover {
+  background-color: var(--color-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.6);
+}
+
+.btn-main:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.2em;
+  }
+  .subtitle {
+    font-size: 1em;
+  }
+  .content-overlay {
+    padding: 25px 35px;
+  }
+  .btn-main {
+    padding: 12px 25px;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.8em;
+  }
+  .subtitle {
+    font-size: 0.9em;
+  }
+  .content-overlay {
+    padding: 20px 25px;
+  }
+  .btn-main {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
