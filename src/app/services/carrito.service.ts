@@ -28,6 +28,4 @@ export class CarritoService {
 
     return this.http.post('http://localhost:8080/venta-service/ventas/vender', payload);
   }
-
-
 }
