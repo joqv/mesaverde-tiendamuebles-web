@@ -9,4 +9,5 @@ export const authCodeFlowConfig: AuthConfig = {
     requireHttps: false,
     useSilentRefresh: true, // necesario 
     
+   
 };

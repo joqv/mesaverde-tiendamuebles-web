@@ -38,7 +38,11 @@ export class App {
   }
 
   login() { this.oauthService.initLoginFlow(); }
-  logout() { this.oauthService.logOut(); }
-goToTasks() { this.router.navigate(['/bvcatalogo']); }
+  //logout() { this.oauthService.logOut(); }
+  logout() { 
+    localStorage.clear();
+    window.location.href="/bvcatalogo"
+   }
+  goToTasks() { this.router.navigate(['/bvcatalogo']); }
 
 }
