@@ -1,15 +1,18 @@
 import { Routes } from '@angular/router';
+import { authGuard } from '../app/services/auth.service-guards';
 
 export const routes: Routes = [
   {
     path: 'confirmacion',
     loadComponent: () => import('./features/venta/confirmacion/confirmacion-component')
-      .then(m => m.ConfirmacionComponent)
+      .then(m => m.ConfirmacionComponent),
+      canActivate: [authGuard] 
   },
   {
     path: 'carrito',
     loadComponent: () => import('./features/venta/carrito/carrito-component')
-      .then(m => m.CarritoComponent)
+      .then(m => m.CarritoComponent),
+      canActivate: [authGuard] 
   },
   {
     path: 'catalogo',
@@ -19,7 +22,8 @@ export const routes: Routes = [
   {
     path: 'bvcatalogo',
     loadComponent: () => import('./features/venta/bvcatalogo/bvcatalogo-component')
-      .then(m => m.BvcatalogoComponent)
+      .then(m => m.BvcatalogoComponent),
+     
   },
 
   { path: '', redirectTo: '/bvcatalogo', pathMatch: 'full' },
