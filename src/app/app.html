@@ -1,2 +1,30 @@
+<nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    
+    <a class="text-white text-xl font-bold" href="#">Mundo muebles</a>
 
-<router-outlet />
+    <div class="flex items-center gap-2">
+      <ng-container *ngIf="!userName">
+        <button 
+          class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded" 
+          (click)="login()">
+          Login
+        </button>
+      </ng-container>
+
+      <ng-container *ngIf="userName">
+        <span class="text-white mr-2">Bienvenido {{ userName }}</span>
+        <button 
+          class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded" 
+          (click)="logout()">
+          Logout
+        </button>
+      </ng-container>
+    </div>
+  </div>
+</nav>
+
+<div class="container mx-auto mt-5">
+
+  <router-outlet></router-outlet>
+</div>
