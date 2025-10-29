@@ -28,6 +28,9 @@ export class CarritoComponent {
   comprar() {
     this.carritoService.enviarCarritoAlBackend().subscribe({
       next: (respuesta) => {
+
+        alert(respuesta.mensaje);
+
         console.log('Transacción exitosa:', respuesta);
         //alert('¡Compra realizada con éxito!');
         this.carritoService.limpiarCarrito();
