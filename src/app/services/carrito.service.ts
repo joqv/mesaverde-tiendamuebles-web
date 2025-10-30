@@ -23,7 +23,8 @@ export class CarritoService {
     const payload = {
       productos: this.carrito,
       fecha: new Date(),
-      total: this.carrito.reduce((acc, p) => acc + p.cantidad * p.precio_unitario, 0)
+      total: this.carrito.reduce((acc, p) => acc + p.cantidad * p.precio_unitario, 0),
+      usuario:  localStorage.getItem('user-id')
     };
 
     //return this.http.post('http://localhost:8080/venta-service/ventas/vender', payload);
