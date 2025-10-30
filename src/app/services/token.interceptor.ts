@@ -14,6 +14,21 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
     const accessToken = oauthService.getAccessToken();
     const issuer = oauthService.issuer;
 
+
+    
+    //  Obtener valores del token (decodificarlo)
+    if(accessToken){
+        const [, payload] = accessToken.split('.');
+        const decodedPayload = JSON.parse(atob(payload));
+
+        console.log('Claims del Access Token:', decodedPayload);
+        localStorage.setItem('user-id', decodedPayload['sub']);
+    }
+     
+     
+
+       
+    
     // 1. Si no hay token, o si es una URL del Servidor de Autorización (Issuer), NO adjuntar.
     if (!accessToken || (issuer && req.url.startsWith(issuer))) {
         return next(req);
@@ -31,4 +46,5 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
     });
 
     return next(clonedRequest);
+    
 };
