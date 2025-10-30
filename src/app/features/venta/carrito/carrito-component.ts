@@ -39,7 +39,10 @@ export class CarritoComponent {
       },
       error: (error) => {
         console.error('Error al procesar la compra:', error);
-        alert('Hubo un problema al realizar la compra.');
+        //alert('Hubo un problema al realizar la compra.');
+        const mensajeError = error.error && error.error.mensaje ? error.error.mensaje : 'Error desconocido.';
+
+        alert(mensajeError);
       }
     });
   }
